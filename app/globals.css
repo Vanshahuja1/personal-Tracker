@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #0f172a;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.dark body { background: #0b1220; color: #e2e8f0; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+h1 { margin: 0; font-size: 1.5rem; line-height: 1.2; }
+h2 { margin: 0; font-size: 0.875rem; }
+h3 { margin: 16px 0 6px; font-size: 0.8125rem; color: #64748b; }
+.dark h3 { color: #94a3b8; }
+p { line-height: 1.55; }
+
+.muted { color: #64748b; }
+.dark .muted { color: #94a3b8; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reading { max-width: 760px; }
+.reading p { font-size: 0.875rem; color: #334155; }
+.dark .reading p { color: #cbd5e1; }
+
+.sheet {
+  background: #fff;
+  border: 1px solid rgb(226 232 240 / 0.8);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+.dark .sheet { background: #111827; border-color: rgb(255 255 255 / 0.08); box-shadow: none; }
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 600;
+}
+.stamp.warn { background: #fff1f2; color: #e11d48; }
+.dark .stamp { background: #1e293b; color: #cbd5e1; }
+.dark .stamp.warn { background: #3f1d24; color: #fda4af; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters select, .field, textarea, input[type="search"], input[type="number"] {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  min-height: 40px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #334155;
+}
+.dark .filters select, .dark textarea, .dark input[type="search"], .dark input[type="number"] {
+  background: #0f172a;
+  border-color: rgb(255 255 255 / 0.1);
+  color: #e2e8f0;
+}
+textarea { min-height: 96px; resize: vertical; }
+label { display: block; font-size: 12px; font-weight: 600; color: #64748b; }
+.dark label { color: #94a3b8; }
+
+.primary-btn, .text-btn, .icon-btn {
+  border-radius: 8px;
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.primary-btn { background: #0ea5e9; color: #fff; border: 0; }
+.primary-btn:hover { background: #0284c7; }
+.primary-btn:disabled { opacity: 0.4; }
+.text-btn, .icon-btn { background: #fff; color: #475569; border: 1px solid #e2e8f0; }
+.dark .text-btn, .dark .icon-btn { background: #111827; color: #e2e8f0; border-color: rgb(255 255 255 / 0.1); }
+.text-btn:hover, .icon-btn:hover { background: #f8fafc; }
+.dark .text-btn:hover, .dark .icon-btn:hover { background: #1e293b; }
+
+.subject-block { display: block; padding: 14px 16px; text-decoration: none; }
+.subject-block + .subject-block { border-top: 1px solid #f1f5f9; }
+.dark .subject-block + .subject-block { border-top-color: rgb(255 255 255 / 0.06); }
+.topic-link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 0;
+}
+.section { padding: 18px 0; border-top: 1px solid #e2e8f0; }
+.dark .section { border-top-color: rgb(255 255 255 / 0.08); }
+.mark { display: none; }
+.qa { padding: 12px 0; border-top: 1px solid #f1f5f9; }
+.dark .qa { border-top-color: rgb(255 255 255 / 0.06); }
+.answer {
+  margin-top: 8px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.dark .answer { background: #0f172a; }
+pre {
+  overflow-x: auto;
+  padding: 14px;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.bar { height: 6px; border-radius: 99px; background: #f1f5f9; overflow: hidden; }
+.dark .bar { background: #1e293b; }
+.bar span { display: block; height: 100%; background: #0ea5e9; }
+.list-reset { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: #334155; }
+.dark .list-reset { color: #cbd5e1; }
+.list-reset li + li { margin-top: 6px; }
